@@ -3,7 +3,7 @@ package frame;
 import java.awt.*;
 
 /**
- *Îª·½±ãÉèÖÃÔ¼ÊøÌõ¼ş¶ø¶¨ÒåµÄÀà
+ *ä¸ºæ–¹ä¾¿è®¾ç½®çº¦æŸæ¡ä»¶è€Œå®šä¹‰çš„ç±»
  */
 public class GBC extends GridBagConstraints {
 	public GBC(int gridx, int gridy) {

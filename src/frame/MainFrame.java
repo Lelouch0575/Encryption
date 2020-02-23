@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
- * Ö÷´°¿Ú
+ * ä¸»çª—å£
  */
 public class MainFrame extends JFrame {
 	private JPanel buttonPanel;

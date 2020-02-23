@@ -12,7 +12,7 @@ import core.AESUtil;
 import core.IncorrectPasswordException;
 
 /**
- *解密文件输入密码的对话框
+ *瑙ｅ瘑鏂囦欢杈撳叆瀵嗙爜鐨勫璇濇
  */
 public class DePasswordDialog extends JDialog{
 	private String password;

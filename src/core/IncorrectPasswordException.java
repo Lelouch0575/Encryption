@@ -1,7 +1,7 @@
 package core;
 
 /**
- *ÃÜÂë²»ÕıÈ·Òì³£
+ *å¯†ç ä¸æ­£ç¡®å¼‚å¸¸
  */
 public class IncorrectPasswordException extends Exception{
 	public IncorrectPasswordException() {}

@@ -9,7 +9,7 @@ import java.awt.event.KeyListener;
 import javax.swing.*;
 
 /**
- *加密文件的对话框
+ *鍔犲瘑鏂囦欢鐨勫璇濇
  */
 public class EnDialog extends JDialog{
 	private String fileAbsolutePath;

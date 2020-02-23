@@ -11,7 +11,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
- * Ìá¹©AES¼ÓÃÜ½âÃÜ¹¦ÄÜ£¬¿É¼ÓÃÜ½âÃÜ×Ö·û´®»òÎÄ¼ş
+ * æä¾›AESåŠ å¯†è§£å¯†åŠŸèƒ½ï¼Œå¯åŠ å¯†è§£å¯†å­—ç¬¦ä¸²æˆ–æ–‡ä»¶
  */
 public class AESUtil {
 	private static final String ALGORITHM = "AES";
@@ -20,18 +20,18 @@ public class AESUtil {
 	
 	
 	/**
-	 * ½«ÓÃ»§ÊäÈëµÄÃÜÂë×ª»»ÎªÃÜÔ¿
-	 * @param password ÃÜÂë
-	 * @return ÃÜÔ¿
+	 * å°†ç”¨æˆ·è¾“å…¥çš„å¯†ç è½¬æ¢ä¸ºå¯†é’¥
+	 * @param password å¯†ç 
+	 * @return å¯†é’¥
 	 * @throws Exception
 	 */
 	public static SecretKeySpec getKey(String password) throws Exception {
-		//½«ÃÜÂë×ªÎª×Ö½ÚÊı×é
+		//å°†å¯†ç è½¬ä¸ºå­—èŠ‚æ•°ç»„
 		byte[] passwordBuf = password.getBytes(CHARSET);
-		//128Î»³¤¶ÈÃÜÔ¿£¬Êı×éÔªËØÄ¬ÈÏ³õÊ¼ÖµÎª0
+		//128ä½é•¿åº¦å¯†é’¥ï¼Œæ•°ç»„å…ƒç´ é»˜è®¤åˆå§‹å€¼ä¸º0
 		byte[] keyBuf = new byte[16];
 		
-		//ÃÜÂë²»×ã16×Ö½ÚÔò²¹0£¬³¬¹ı16×Ö½ÚÔòÖ»È¡Ç°16×Ö½Ú
+		//å¯†ç ä¸è¶³16å­—èŠ‚åˆ™è¡¥0ï¼Œè¶…è¿‡16å­—èŠ‚åˆ™åªå–å‰16å­—èŠ‚
 		for(int i = 0; i < 16 && i < passwordBuf.length; i++) {
 			keyBuf[i] = passwordBuf[i];
 		}
@@ -41,8 +41,8 @@ public class AESUtil {
 	}
 	
 	/**
-	 * »ñÈ¡Ëæ»úÉú³ÉµÄ³õÊ¼»¯ÏòÁ¿
-	 * @return ³õÊ¼»¯ÏòÁ¿µÄ×Ö½ÚÊı×é
+	 * è·å–éšæœºç”Ÿæˆçš„åˆå§‹åŒ–å‘é‡
+	 * @return åˆå§‹åŒ–å‘é‡çš„å­—èŠ‚æ•°ç»„
 	 */
 	public static byte[] getIv() {
 		byte[] iv = new byte[16];
@@ -52,16 +52,16 @@ public class AESUtil {
 	}
 	
 	/**
-	 * ¼ÓÃÜ×Ö·û´®
-	 * @param plainText ×Ö·û´®Ã÷ÎÄ
-	 * @param keySpec ÃÜÔ¿
-	 * @param ivSpec ³õÊ¼»¯ÏòÁ¿
-	 * @return ¾­base64±àÂëµÄ×Ö·û´®ÃÜÎÄ
+	 * åŠ å¯†å­—ç¬¦ä¸²
+	 * @param plainText å­—ç¬¦ä¸²æ˜æ–‡
+	 * @param keySpec å¯†é’¥
+	 * @param ivSpec åˆå§‹åŒ–å‘é‡
+	 * @return ç»base64ç¼–ç çš„å­—ç¬¦ä¸²å¯†æ–‡
 	 * @throws Exception
 	 */
 	public static String encrypt(String plainText,SecretKeySpec keySpec,IvParameterSpec ivSpec) throws Exception {
 		
-		//»ñÈ¡¼ÓÃÜËã·¨ÊµÀı
+		//è·å–åŠ å¯†ç®—æ³•å®ä¾‹
 		Cipher cip = Cipher.getInstance(TRANSFORMATION);
 		cip.init(Cipher.ENCRYPT_MODE,keySpec,ivSpec);
 		
@@ -72,11 +72,11 @@ public class AESUtil {
 	}
 	
 	/**
-	 * ½âÃÜ×Ö·û´®
-	 * @param cipherText ¾­base64±àÂëµÄ×Ö·û´®ÃÜÎÄ
-	 * @param keySpec ÃÜÔ¿
-	 * @param ivSpec ³õÊ¼»¯ÏòÁ¿
-	 * @return ×Ö·û´®Ã÷ÎÄ
+	 * è§£å¯†å­—ç¬¦ä¸²
+	 * @param cipherText ç»base64ç¼–ç çš„å­—ç¬¦ä¸²å¯†æ–‡
+	 * @param keySpec å¯†é’¥
+	 * @param ivSpec åˆå§‹åŒ–å‘é‡
+	 * @return å­—ç¬¦ä¸²æ˜æ–‡
 	 * @throws Exception
 	 */
 	public static String decrypt(String cipherText,SecretKeySpec keySpec,IvParameterSpec ivSpec) throws Exception {
@@ -92,9 +92,9 @@ public class AESUtil {
 	
 	
 	/**
-	 * @param path ÎÄ¼şµÄ¾ø¶ÔÂ·¾¶
-	 * @param password ÃÜÂë
-	 * @param isEncryptFileName ÊÇ·ñ¼ÓÃÜÎÄ¼şÃû
+	 * @param path æ–‡ä»¶çš„ç»å¯¹è·¯å¾„
+	 * @param password å¯†ç 
+	 * @param isEncryptFileName æ˜¯å¦åŠ å¯†æ–‡ä»¶å
 	 * @throws Exception
 	 */
 	public static void encrypt(String path,String password,boolean isEncryptFileName) throws Exception {
@@ -108,7 +108,7 @@ public class AESUtil {
 		
 		String outPath;
 		if(isEncryptFileName) {
-			//¼ÓÃÜÎÄ¼şÃû
+			//åŠ å¯†æ–‡ä»¶å
 			String parentName = file.getParent();
 			String name = file.getName();
 			String encryptedName = encrypt(name, keySpec, ivSpec);
@@ -124,9 +124,9 @@ public class AESUtil {
 		byte[] salt = HashUtil.getSalt();
 		byte[] hashWithSalt = HashUtil.encodeSHA512(password.getBytes(CHARSET), salt);
 		
-		outFile.write(salt); //Ğ´ÈësaltÖµ£¬16×Ö½Ú
-		outFile.write(hashWithSalt);  //Ğ´ÈëhashÖµ£¬64×Ö½Ú
-		outFile.write(iv);  //Ğ´Èë³õÊ¼»¯ÏòÁ¿£¬16×Ö½Ú
+		outFile.write(salt); //å†™å…¥saltå€¼ï¼Œ16å­—èŠ‚
+		outFile.write(hashWithSalt);  //å†™å…¥hashå€¼ï¼Œ64å­—èŠ‚
+		outFile.write(iv);  //å†™å…¥åˆå§‹åŒ–å‘é‡ï¼Œ16å­—èŠ‚
 		
 		Cipher cip = Cipher.getInstance(TRANSFORMATION);
 		cip.init(Cipher.ENCRYPT_MODE,keySpec,ivSpec);
@@ -137,14 +137,14 @@ public class AESUtil {
 		outFile.flush();
 		outFile.close();
 		
-		file.delete();  //¼ÓÃÜÍê³ÉºóÉ¾³ıÔ´ÎÄ¼ş
+		file.delete();  //åŠ å¯†å®Œæˆååˆ é™¤æºæ–‡ä»¶
 	}
 	
 	/**
-	 * @param path ÎÄ¼şµÄ¾ø¶ÔÂ·¾¶
-	 * @param password ÃÜÂë
-	 * @param isDecryptFileName ÊÇ·ñ¼ÓÃÜÎÄ¼şÃû
-	 * @throws IncorrectPasswordException ÃÜÂë´íÎóÒì³£
+	 * @param path æ–‡ä»¶çš„ç»å¯¹è·¯å¾„
+	 * @param password å¯†ç 
+	 * @param isDecryptFileName æ˜¯å¦åŠ å¯†æ–‡ä»¶å
+	 * @throws IncorrectPasswordException å¯†ç é”™è¯¯å¼‚å¸¸
 	 * @throws Exception
 	 */
 	public static void decrypt(String path,String password,boolean isDecryptFileName) throws IncorrectPasswordException,Exception {
@@ -156,16 +156,16 @@ public class AESUtil {
 		byte[] hashWithSalt = new byte[64];
 		byte[] iv = new byte[16];
 		
-		//¼ÓÃÜµÄÎÄ¼şÇ°96×Ö½ÚÎª£ºsaltÖµ¡¢hashÖµºÍ³õÊ¼»¯ÏòÁ¿
-		inFile.read(salt);  //salt 16×Ö½Ú
-		inFile.read(hashWithSalt);  //hash 64×Ö½Ú
-		inFile.read(iv);  //³õÊ¼»¯ÏòÁ¿ 16×Ö½Ú
+		//åŠ å¯†çš„æ–‡ä»¶å‰96å­—èŠ‚ä¸ºï¼šsaltå€¼ã€hashå€¼å’Œåˆå§‹åŒ–å‘é‡
+		inFile.read(salt);  //salt 16å­—èŠ‚
+		inFile.read(hashWithSalt);  //hash 64å­—èŠ‚
+		inFile.read(iv);  //åˆå§‹åŒ–å‘é‡ 16å­—èŠ‚
 		
-		//¸ù¾İÓÃ»§ÃÜÂë¼°¶ÁÈ¡µÄsaltÖµÖØĞÂ¼ÆËãhashÖµ
+		//æ ¹æ®ç”¨æˆ·å¯†ç åŠè¯»å–çš„saltå€¼é‡æ–°è®¡ç®—hashå€¼
 		byte[] passwordHashWithSalt = HashUtil.encodeSHA512(password.getBytes(CHARSET), salt);
 		
 		if(!MessageDigest.isEqual(hashWithSalt, passwordHashWithSalt)) {
-			//ÖØĞÂ¼ÆËãµÄ¹şÏ£ÖµÓë´ÓÎÄ¼şÖĞ¶ÁÈ¡µ½µÄ¹şÏ£Öµ²»Æ¥Åä£¬ËµÃ÷ÃÜÂë²»ÕıÈ·
+			//é‡æ–°è®¡ç®—çš„å“ˆå¸Œå€¼ä¸ä»æ–‡ä»¶ä¸­è¯»å–åˆ°çš„å“ˆå¸Œå€¼ä¸åŒ¹é…ï¼Œè¯´æ˜å¯†ç ä¸æ­£ç¡®
 			System.out.println("Incorrect password !");
 			inFile.close();
 			throw new IncorrectPasswordException();
@@ -177,7 +177,7 @@ public class AESUtil {
 		
 		String outPath;
 		if(isDecryptFileName) {
-			//½âÃÜÎÄ¼şÃû
+			//è§£å¯†æ–‡ä»¶å
 			String parentName = file.getParent();
 			String name = file.getName();
 			String decryptedName = decrypt(name.substring(0, name.length() - 6), keySpec, ivSpec);
@@ -204,10 +204,10 @@ public class AESUtil {
 	}
 	
 	/**
-	 * ÎÄ¼ş¼ÓÃÜ½âÃÜµÄºËĞÄ²Ù×÷
-	 * @param inFile ÎÄ¼şÊäÈëÁ÷
-	 * @param outFile ÎÄ¼şÊä³öÁ÷
-	 * @param cip ÒÑ³õÊ¼»¯µÄCipher¶ÔÏó
+	 * æ–‡ä»¶åŠ å¯†è§£å¯†çš„æ ¸å¿ƒæ“ä½œ
+	 * @param inFile æ–‡ä»¶è¾“å…¥æµ
+	 * @param outFile æ–‡ä»¶è¾“å‡ºæµ
+	 * @param cip å·²åˆå§‹åŒ–çš„Cipherå¯¹è±¡
 	 * @throws Exception
 	 */
 	public static void crypt(FileInputStream inFile,FileOutputStream outFile,Cipher cip) throws Exception {

@@ -7,7 +7,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *½âÃÜÎÄ¼ş¶Ô»°¿ò
+ *è§£å¯†æ–‡ä»¶å¯¹è¯æ¡†
  */
 public class DeDialog extends JDialog{
 	private String fileAbsolutePath;

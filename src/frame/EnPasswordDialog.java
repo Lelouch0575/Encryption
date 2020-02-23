@@ -13,7 +13,7 @@ import javax.swing.JPasswordField;
 import core.AESUtil;
 
 /**
- *加密文件输入密码的对话框
+ *鍔犲瘑鏂囦欢杈撳叆瀵嗙爜鐨勫璇濇
  */
 public class EnPasswordDialog extends JDialog {
 	private String password;

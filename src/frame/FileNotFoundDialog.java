@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- *ÈôÖ¸¶¨ÎÄ¼şÎ´ÕÒµ½£¬µ¯³ö´Ë¶Ô»°¿ò
+ *è‹¥æŒ‡å®šæ–‡ä»¶æœªæ‰¾åˆ°ï¼Œå¼¹å‡ºæ­¤å¯¹è¯æ¡†
  */
 public class FileNotFoundDialog extends JDialog {
 	private JPanel panel;

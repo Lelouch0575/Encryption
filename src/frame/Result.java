@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- *加密解密之后提示结果
+ *鍔犲瘑瑙ｅ瘑涔嬪悗鎻愮ず缁撴灉
  */
 public class Result extends JDialog {
 	private JPanel panel;

@@ -4,22 +4,22 @@ import java.security.MessageDigest;
 import java.security.SecureRandom;
 
 /**
- * Ìá¹©¼ÆËã¹şÏ£Öµ¹¦ÄÜ£¬Ê¹ÓÃSHA-512Ëã·¨
+ * æä¾›è®¡ç®—å“ˆå¸Œå€¼åŠŸèƒ½ï¼Œä½¿ç”¨SHA-512ç®—æ³•
  */
 public class HashUtil {
-	//²»´øsaltµÄ¹şÏ£Öµ¼ÆËã
+	//ä¸å¸¦saltçš„å“ˆå¸Œå€¼è®¡ç®—
 	public static byte[] encodeSHA512(byte[] data) throws Exception {
 		MessageDigest md = MessageDigest.getInstance("SHA-512");
 		return md.digest(data);
 	}
 	
-	//´øsaltµÄ¹şÏ£Öµ¼ÆËã
+	//å¸¦saltçš„å“ˆå¸Œå€¼è®¡ç®—
 	public static byte[] encodeSHA512(byte[] data,byte[] salt) throws Exception {
 		MessageDigest md = MessageDigest.getInstance("SHA-512");
 		
 		byte[] dataWithSalt = new byte[data.length + salt.length];
 		
-		//½«dataºÍsaltÁ½¸öÊı×éÕûºÏµ½datawithsaltÊı×éÖĞ
+		//å°†dataå’Œsaltä¸¤ä¸ªæ•°ç»„æ•´åˆåˆ°datawithsaltæ•°ç»„ä¸­
 		int i=0;
 		for(int j=0; j<data.length; j++) {
 			dataWithSalt[i++] = data[j];
@@ -31,7 +31,7 @@ public class HashUtil {
 		return md.digest(dataWithSalt);
 	}
 	
-	//Éú³Ésalt
+	//ç”Ÿæˆsalt
 	public static byte[] getSalt() {
 		byte[] salt = new byte[16];
 		SecureRandom random = new SecureRandom();
